@@ -1,4 +1,4 @@
-/* src/pages/LoginPage.css */
+/* LoginPage css */
 .login-bg {
     background: linear-gradient(to right, #0f172a, #1e293b);
     height: 100vh;
@@ -75,7 +75,7 @@
     margin-top: 10px;
   }
 
-  /* src/pages/DashboardPage.css */
+  /* DashboardPage css */
 .dashboard-container {
     background-color: #f8fafc;
     min-height: 100vh;
@@ -84,9 +84,9 @@
   .dashboard-content {
     padding: 20px;
   }
-  /* src/components/Navbar.css */
+  
 
-/* src/components/Navbar.css */
+/* Navbar css */
  .navbar {
   background-color: #0f172a;
   color: white;

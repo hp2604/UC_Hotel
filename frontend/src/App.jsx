@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Route,  Routes } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/Dashboard';
-
-
-
-
-
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   
@@ -17,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
         <Route path="/dashboard" element={<DashboardPage/>}/>
+
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter><ToastContainer/>
     </>
   )
 }
