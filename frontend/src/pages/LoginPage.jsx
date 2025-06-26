@@ -4,8 +4,7 @@ import '/src/index.css';
 import { useNavigate } from 'react-router-dom';
 import { Hotel } from 'lucide-react';
 import { toast } from 'react-toastify';
-import axios from "axios";
-import { setToken } from '../service/JwtToken';
+import { auth, error, login, responseBody, status } from '../service/AuthService';
 
 
 function LoginPage  ()  {
@@ -19,26 +18,7 @@ function LoginPage  ()  {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/auth/login",
-        data
-      );
-      const status = response.status;
-      console.log(status);
-      const responseBody = response.data;
-      console.log(responseBody);
-      if (status === 202) {
-        setToken(responseBody);
-        
-        
-      } else if (status === 403) {
-        toast.error(responseBody);
-      }
-    } catch (error) {
-      toast.error("Something went wrong ");
-    }
+    login(data);
   };
 
   return (

@@ -13,7 +13,7 @@ import com.UCHotel.dto.UserDto;
 @Service
 public class UserDetailServices implements UserDetailsService {
 	@Autowired
-	private UserServiceImpl user;
+	private AuthenticationService user;
 
 	private UserDto dto=null;
 

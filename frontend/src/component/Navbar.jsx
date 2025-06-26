@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-brand">Hotel Management</div>
+      <div className="navbar-brand">UC Hotel</div>
       <div className="navbar-links">
         <NavItem to="/dashboard" icon={<FaHome />} label="Dashboard" active={currentPath === '/dashboard'} />
         <NavItem to="/tables" icon={<FaTable />} label="Tables" active={currentPath === '/tables'} />

@@ -1,74 +1,127 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Input,
-  Button,
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  Form,
-  FormGroup,
-  Label,
-} from "reactstrap";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import '/src/index.css';
+import { FaPlus, FaClock, FaEdit, FaTrash, FaDollarSign } from 'react-icons/fa';
+import NavBar from '../component/Navbar';
+import { addDish } from '../service/DishService';
+const DishManagementPage = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [data,setData] =useState({
+    dishName :"" ,
+    category :"",
+    description : "",
+    price : "",
+    time : "",
+    avail : ""
+  });
+
+  const handleChange = (event, property) => {
+    setData({ ...data, [property]: event.target.value });
+  };
 
 
-function AddDish(){
-return(
-<>
-<Container>
-       
-            <Card>
-              <CardBody>
-                <CardTitle>
-                  <h4> Add New Dish</h4>
-                </CardTitle>
-                <CardText>
-                  <Form >
-                    {/* School Id section*/}
-                    <FormGroup>
-                      <Label for="Dish Name">Dish Name</Label>
-                      <Input
-                        id="dishname"
-                        placeholder="Enter the Dish Name"
-                       // onChange={(e) => handleChange(e, "")}
-                        //value={data.schoolId}
-                        required
-                      />
-                    </FormGroup>
+  const handleAddDish = async (e) => {
+    e.preventDefault();
+      setShowForm(false);
+      addDish(data);
+     
+  };
 
-                    {/* Password Section  */}
-                    <FormGroup>
-                      <Label for="price">Price</Label>
-                      <Input
-                        id="price"
-                        type="number"
-                        placeholder="Enter Price "
-                        //onChange={(e) => handleChange(e, "password")}
-                        //value={data.password}
-                        required
-                      />
-                    </FormGroup>
-                    
-                    <Button color="success" type="submit">
-                      Add
-                    </Button>
-                  </Form>
-                  <br></br>
-                  
-                </CardText>
-              </CardBody>
-            </Card>
-         
-      </Container>
+  return (
+    <>
+    <NavBar/>
+      <div className="dish-container">
+      <div className="dish-header">
+        <div>
+          <h2>Menu Management</h2>
+          <p>Manage your restaurant dishes and menu items</p>
+        </div>
+        <button className="add-dish-btn" onClick={() => setShowForm(!showForm)}>
+          <FaPlus /> Add New Dish
+        </button>
+      </div>
+      {showForm && (
+        <form className="dish-form" onSubmit={handleAddDish}>
+          <h3>Add New Dish</h3>
 
-</>
-  
-);
+          <div className="form-row">
+            <div className="form-group">
+              <label>Dish Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter dish name"
+                onChange={(e)=>handleChange(e,"dishName")}
+                required
+              />
+            </div>
 
-}
-export default AddDish;
+            <div className="form-group">
+              <label>Price ($)</label>
+              <input
+                type="number"
+                name="price"
+                onChange={(e)=>handleChange(e,"price")}
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label>Category</label>
+              <select name="category" required value={data.category} onChange={(e)=>handleChange(e,"category")}>
+                <option value="">Select category</option>
+                <option value="Appetizer">Appetizer</option>
+                <option value="Salad">Salad</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Beverage">Beverage</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Preparation Time (minutes)</label>
+              <input
+                type="number"
+                name="time"
+                onChange={(e)=>handleChange(e,"time")}
+
+               
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Description</label>
+            <textarea
+              name="description"
+              placeholder="Enter dish description"
+              onChange={(e)=>handleChange(e,"description")}
+            />
+          </div>
+
+          <div className="form-group checkbox">
+            <input
+              type="checkbox"
+              name="status"
+              onChange={(e)=>handleChange(e,"avail")}
+              checked= {data.avail}
+            />
+            <label>Available for ordering</label>
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="add-dish-btn">Add Dish</button>
+            <button type="button" onClick={() => setShowForm(false)}>Cancel</button>
+          </div>
+        </form>
+      )}
+
+      
+    </div>
+    </>
+   
+  );
+};
+
+export default DishManagementPage;
