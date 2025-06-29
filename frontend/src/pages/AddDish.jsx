@@ -56,7 +56,7 @@ const DishManagementPage = () => {
             </div>
 
             <div className="form-group">
-              <label>Price ($)</label>
+              <label>Price </label>
               <input
                 type="number"
                 name="price"
@@ -70,15 +70,17 @@ const DishManagementPage = () => {
               <label>Category</label>
               <select name="category" required value={data.category} onChange={(e)=>handleChange(e,"category")}>
                 <option value="">Select category</option>
-                <option value="Appetizer">Appetizer</option>
+                <option value="Refresher">Refreshers</option>
                 <option value="Salad">Salad</option>
-                <option value="Main Course">Main Course</option>
-                <option value="Pizza">Pizza</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Beverage">Beverage</option>
+                <option value="Soup">Soup</option>
+                <option value="Accompaniments">Accompaniments</option>
+                <option value="Starter">Starter</option>
+                <option value="Multi Cuisine">Multi Cuisine</option>
+                <option value="Mains">Mains</option>
+                <option value="Desserts"> Desserts</option>
               </select>
             </div>
-
+              
             <div className="form-group">
               <label>Preparation Time (minutes)</label>
               <input
@@ -90,7 +92,6 @@ const DishManagementPage = () => {
               />
             </div>
           </div>
-
           <div className="form-group">
             <label>Description</label>
             <textarea
