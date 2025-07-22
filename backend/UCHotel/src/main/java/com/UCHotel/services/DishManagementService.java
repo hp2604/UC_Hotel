@@ -1,5 +1,7 @@
 package com.UCHotel.services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,7 @@ public class DishManagementService {
 	@Autowired
 	private DishRepo repo;
 	
+	// Add Dish Service
 	public boolean addDish(DishDto d)
 	{
 		boolean status=false;
@@ -28,9 +31,19 @@ public class DishManagementService {
 		return status;
 	}
 	
+	
+	// Get All Dish Service
+	public ArrayList<Dish> getDish(String category)
+	{
+		ArrayList<Dish> dishes=repo.findByCategory(category);
+		return dishes;
+		
+	}
+	
 	private Dish dtoToDish (DishDto dto)
 	{
 		Dish dish=new Dish();
+		dish.setDish_no(dto.getDish_no());
 		dish.setDishName(dto.getDishName());
 		dish.setCategory(dto.getCategory());
 		dish.setDescription(dto.getDescription());

@@ -70,14 +70,14 @@ const DishManagementPage = () => {
               <label>Category</label>
               <select name="category" required value={data.category} onChange={(e)=>handleChange(e,"category")}>
                 <option value="">Select category</option>
-                <option value="Refresher">Refreshers</option>
+                <option value="Refreshment">Refreshment</option>
                 <option value="Salad">Salad</option>
                 <option value="Soup">Soup</option>
-                <option value="Accompaniments">Accompaniments</option>
+                <option value="Accompaniment">Accompaniment</option>
                 <option value="Starter">Starter</option>
-                <option value="Multi Cuisine">Multi Cuisine</option>
-                <option value="Mains">Mains</option>
-                <option value="Desserts"> Desserts</option>
+                <option value="MultiCuisine">Multi Cuisine</option>
+                <option value="MainCourse">MainCourse</option>
+                <option value="Dessert"> Dessert</option>
               </select>
             </div>
               
