@@ -342,3 +342,165 @@
   color: white;
 }
 
+.category-container {
+  
+  background-color: #f7f9fb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.category-title {
+  font-size: 24px;
+ 
+  margin-bottom: 20px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.category-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.category-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.category-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-count {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.category-button {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.category-button:hover {
+  background-color: #f3f3f3;
+}
+
+/* MenuList and Card CSS */
+.MenuList-container {
+  padding: 20px;
+  background-color: #f9fafb;
+  font-family: Arial, sans-serif;
+}
+
+.MenuList-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.MenuList-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MenuList-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.MenuList-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.MenuList-icon {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.MenuList-tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.MenuList-tag {
+  font-size: 12px;
+  background-color: #eee;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.MenuList-available {
+  background-color: #d4f5dd;
+  color: green;
+  font-weight: bold;
+}
+
+.MenuList-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.MenuList-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.MenuList-price {
+  color: green;
+}
+
+.MenuList-time {
+  color: #e88b00;
+}
+
+.MenuList-button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.MenuList-button:hover {
+  background-color: #f2f2f2;
+}
+
+
+

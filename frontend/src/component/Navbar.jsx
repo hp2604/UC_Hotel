@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { removeToken } from '../service/JwtToken';
 import '/src/index.css';
 import {
   FaHome,
@@ -10,6 +11,7 @@ import {
   FaUtensils,
   FaSignOutAlt
 } from 'react-icons/fa';
+import { logout } from '../service/AuthService';
 
 const Navbar = () => {
   const location = useLocation();
@@ -25,7 +27,7 @@ const Navbar = () => {
         <NavItem to="/payments" icon={<FaCreditCard />} label="Payments" active={currentPath === '/payments'} />
         <NavItem to="/dish" icon={<FaUtensils />} label="Dish" active={currentPath === '/dish'} />
       </div>
-      <Link to="/" className="navbar-logout">
+      <Link to="/" className="navbar-logout" onClick={logout}>
         <FaSignOutAlt />
         <span>Logout</span>
       </Link>

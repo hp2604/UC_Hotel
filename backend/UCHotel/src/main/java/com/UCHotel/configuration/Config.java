@@ -63,11 +63,12 @@ public class Config {
 	{
 		http.csrf(csrf->csrf.disable())
 			.authorizeHttpRequests(auth -> auth.requestMatchers("/admin/**").hasRole("admin")
-					.anyRequest().permitAll()
-								   )
+					.anyRequest().permitAll()			   )
+			 .formLogin(login -> login.disable())     
+		        .httpBasic(basic -> basic.disable()) 
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class)
-			.cors(cors -> {});
+			.cors(cors -> {cors.configurationSource(corsConfigurationSource());});
 		return http.build();
 
 	}

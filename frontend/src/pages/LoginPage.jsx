@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import '/src/index.css';
 import { useNavigate } from 'react-router-dom';
 import { Hotel } from 'lucide-react';
-import { toast } from 'react-toastify';
-import { auth, error, login, responseBody, status } from '../service/AuthService';
+import {  login } from '../service/AuthService';
 
 
 function LoginPage  ()  {
@@ -12,13 +11,20 @@ function LoginPage  ()  {
     username: "",
     password: "",
   });
+
+  const navigate=useNavigate();
+
   const handleChange = (event, property) => {
     setData({ ...data, [property]: event.target.value });
   };
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    login(data);
+    const response= await login(data);
+    if(response===202)
+    {
+        navigate("/dashboard");
+    }
   };
 
   return (

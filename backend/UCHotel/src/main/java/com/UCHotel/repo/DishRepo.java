@@ -10,5 +10,7 @@ public interface DishRepo extends JpaRepository<Dish,String>{
 	
 	public ArrayList<Dish> findByCategory(String category);
 	
+	public Dish findByDishNo(int id);
+	
 	
 }

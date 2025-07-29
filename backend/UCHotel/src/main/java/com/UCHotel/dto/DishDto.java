@@ -6,7 +6,7 @@ import lombok.Data;
 public class DishDto {
 	
 	private String dishName,category,description,avail;
-	private int dish_no,price,time;
+	private int dishNo,price,time;
 	
 
 }

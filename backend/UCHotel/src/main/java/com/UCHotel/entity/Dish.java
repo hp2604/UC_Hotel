@@ -16,7 +16,7 @@ public class Dish {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int dish_no;
+	private int dishNo;
 	
 	private String category;
 	

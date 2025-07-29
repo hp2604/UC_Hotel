@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import '/src/index.css';
-import { FaPlus, FaClock, FaEdit, FaTrash, FaDollarSign } from 'react-icons/fa';
+import { FaPlus} from 'react-icons/fa';
 import NavBar from '../component/Navbar';
-import { addDish } from '../service/DishService';
+import { addDish} from '../service/DishService';
+import Categories from '../component/Categories';
 const DishManagementPage = () => {
+ 
   const [showForm, setShowForm] = useState(false);
   const [data,setData] =useState({
     dishName :"" ,
@@ -18,18 +20,17 @@ const DishManagementPage = () => {
     setData({ ...data, [property]: event.target.value });
   };
 
-
   const handleAddDish = async (e) => {
     e.preventDefault();
       setShowForm(false);
-      addDish(data);
-     
+      addDish(data);  
   };
+
 
   return (
     <>
     <NavBar/>
-      <div className="dish-container">
+    <div className="dish-container">
       <div className="dish-header">
         <div>
           <h2>Menu Management</h2>
@@ -38,6 +39,7 @@ const DishManagementPage = () => {
         <button className="add-dish-btn" onClick={() => setShowForm(!showForm)}>
           <FaPlus /> Add New Dish
         </button>
+        
       </div>
       {showForm && (
         <form className="dish-form" onSubmit={handleAddDish}>
@@ -118,8 +120,9 @@ const DishManagementPage = () => {
         </form>
       )}
 
-      
+     <Categories/>
     </div>
+   
     </>
    
   );

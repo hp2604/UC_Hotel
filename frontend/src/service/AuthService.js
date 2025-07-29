@@ -3,6 +3,7 @@ import { setToken,getToken, removeToken } from "./JwtToken";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
+
  var status='';
  var responseBody='';
  var error=false;
@@ -11,15 +12,17 @@ import { toast } from "react-toastify";
 
 
 const  login=async(data)=>{
+ 
     try {
-        
         const response=await axios.post('http://localhost:8080/auth/login',data);
         status=response.status;
+        
         if(status===202)
         {
             const token=response.data;
             setToken(token);
-            console.log("Login");
+            console.log("login");
+            return status;
             
         }
         
@@ -32,6 +35,7 @@ const  login=async(data)=>{
         }
         else
         {
+            console.log(error);
             toast.error("Something went wrong");
         }
         

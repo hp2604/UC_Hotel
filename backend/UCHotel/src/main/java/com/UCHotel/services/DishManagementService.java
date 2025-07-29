@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.UCHotel.dto.DishDto;
 import com.UCHotel.entity.Dish;
 import com.UCHotel.repo.DishRepo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class DishManagementService {
 	
 	private Dish dish;
@@ -17,6 +21,7 @@ public class DishManagementService {
 	private DishRepo repo;
 	
 	// Add Dish Service
+	@Transactional
 	public boolean addDish(DishDto d)
 	{
 		boolean status=false;
@@ -25,9 +30,10 @@ public class DishManagementService {
 		{
 			repo.save(dish);
 			status=true;
+			log.info("Dish Saved SuccessFully ");
 			
 		}
-
+        log.error("Dish not Saved");
 		return status;
 	}
 	
@@ -36,14 +42,61 @@ public class DishManagementService {
 	public ArrayList<Dish> getDish(String category)
 	{
 		ArrayList<Dish> dishes=repo.findByCategory(category);
+		log.info("Data Fetched");
 		return dishes;
 		
 	}
 	
+	
+	// Update Dish
+	@Transactional
+	public boolean updateDish(DishDto dto) {
+		boolean status = false;
+		 this.dish =dtoToDish(dto);
+		Dish exisitingDish=repo.findByDishNo(dish.getDishNo());		
+		if(exisitingDish==null)
+		{
+			log.error("Error in Fetchin Dish ");
+		}
+		else
+		{ 
+			exisitingDish.setDishName(dish.getDishName());
+			exisitingDish.setPrice(dish.getPrice());
+			exisitingDish.setTime(dish.getTime());
+			exisitingDish.setDescription(dish.getDescription());
+			exisitingDish.setAvail(dish.getAvail());
+			exisitingDish.setCategory(dish.getCategory());
+			repo.save(exisitingDish);
+			 status=true;
+			 log.info("Data Updated ");
+		}
+		
+		return status;
+	}
+	
+	//Delete Dish
+	public boolean deleteDish(int id)
+	{
+		boolean status=false;
+		Dish dish=repo.findByDishNo(id);
+		if(dish==null) {
+		   log.error("Invalid Dish Id");
+		}
+		else
+		{
+			repo.delete(dish);
+			log.info("Dish Deleted");
+			status =true;
+		}
+		return status;
+		
+	}
+	
+	// Dto into dish
 	private Dish dtoToDish (DishDto dto)
 	{
 		Dish dish=new Dish();
-		dish.setDish_no(dto.getDish_no());
+		dish.setDishNo(dto.getDishNo());
 		dish.setDishName(dto.getDishName());
 		dish.setCategory(dto.getCategory());
 		dish.setDescription(dto.getDescription());
@@ -52,6 +105,7 @@ public class DishManagementService {
 		dish.setAvail(dto.getAvail());
 		return dish;
 	}
+	
 	
 
 }
