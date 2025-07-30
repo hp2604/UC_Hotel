@@ -117,8 +117,11 @@ Run File ``` backend/UCHotel/src/main/java/com/UCHotel/UcHotelApplication.java``
 
 
 ## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="1195" height="424" alt="AddDish" src="https://github.com/user-attachments/assets/1257144b-1d22-4ab4-82c8-d96896a1a8a3" />
+<img width="1241" height="779" alt="dishManagment" src="https://github.com/user-attachments/assets/4e42228b-1d46-43cf-af9e-28ae12811479" />
+<img width="1156" height="434" alt="editDish" src="https://github.com/user-attachments/assets/2ae3d536-60e9-45e1-a266-e1651502a82a" />
+<img width="731" height="660" alt="login" src="https://github.com/user-attachments/assets/fb75ebb3-8a32-446a-a235-45afa654b0c2" />
+<img width="1232" height="698" alt="MainCourseDish" src="https://github.com/user-attachments/assets/d02d9dc3-2d7a-41f1-af64-d3833076c4ef" />
 
 
 ## 🚧 Project Progress
