@@ -1,4 +1,3 @@
-
 # UC Hotel
 A full-featured Restaurant Management System designed to simplify operations for both restaurant owners and customers. This web-based solution provides a seamless experience with dedicated interfaces for Admins (owners) and Customers.
 
