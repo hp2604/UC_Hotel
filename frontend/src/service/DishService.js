@@ -27,76 +27,47 @@ const addDish = async(dish)=>{
     }
 }
 
-const getRefreshment =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getRefreshment =(dispatch)=>{
       instance.get('/admin/dish/Refreshment')
       .then((res)=>{dispatch(setRefreshment(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);     
   } 
 
-const getSalad=()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getSalad=(dispatch)=>{
       instance.get('/admin/dish/Salad')
       .then((res)=>{dispatch(setSalad(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);      
  }
-const getSoup =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getSoup =(dispatch)=>{
       instance.get('/admin/dish/Soup')
       .then((res)=>{dispatch(setSoup (res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);    
 }
-const getAccompaniment =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getAccompaniment =(dispatch)=>{
       instance.get('/admin/dish/Accompaniment')
       .then((res)=>{dispatch(setAccompaniment(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);    
 }
-const getStarter =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getStarter =(dispatch)=>{
       instance.get('/admin/dish/Starter')
       .then((res)=>{dispatch(setStarter(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);
 }
-const getMultiCuisine =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getMultiCuisine =(dispatch)=>{
       instance.get('/admin/dish/MultiCuisine')
       .then((res)=>{dispatch(setMultiCuisine(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);
 }
-const getMainCourse =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getMainCourse =(dispatch)=>{
       instance.get('/admin/dish/MainCourse')
       .then((res)=>{dispatch(setMainCourse(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);
 }
-const getDessert =()=>{
-    const dispatch=useDispatch();
-    useEffect(()=>{
+const getDessert =(dispatch)=>{
       instance.get('/admin/dish/Dessert')
       .then((res)=>{dispatch(setDessert(res.data));})
       .catch((error)=>{console.log(error);});  
-    },[dispatch]);
 }
-const getSelectedCategory=()=>{
-  return useSelector((state)=>state.dish.selectedCategory);
-}
-
-
 const saveEdit =async(dish)=>{
   response=await instance.put('/admin/edit',dish);
   status=response.status;
@@ -126,4 +97,4 @@ const deleteDish= async (dishId)=>{
 
 }
 
-export {addDish,getRefreshment,getSalad,getSoup,getAccompaniment,getStarter,getMultiCuisine,getMainCourse,getDessert,getSelectedCategory,saveEdit,deleteDish};
+export {addDish,getRefreshment,getSalad,getSoup,getAccompaniment,getStarter,getMultiCuisine,getMainCourse,getDessert,saveEdit,deleteDish};

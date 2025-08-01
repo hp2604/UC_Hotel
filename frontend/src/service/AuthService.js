@@ -2,13 +2,13 @@ import axios from "axios";
 import { setToken,getToken, removeToken } from "./JwtToken";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { getDessert, getMainCourse, getMultiCuisine, getRefreshment, getSalad, getSoup, getStarter } from "./DishService";
 
 
  var status='';
  var responseBody='';
  var error=false;
  var auth=false;
-
 
 
 const  login=async(data)=>{

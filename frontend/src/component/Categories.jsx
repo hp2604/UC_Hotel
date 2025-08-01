@@ -3,33 +3,34 @@ import CategoryCard from "./CategoryCard";
 import '/src/index.css';
 import { getRefreshment , getAccompaniment,getStarter,getMultiCuisine,getMainCourse,getDessert,getSoup,getSalad} from "../service/DishService";
 import { useAccompaniment, useDessert, useMainCourse, useMultiCuisine, useRefreshment, useSalad, useSoup, useStarter } from "../hooks/useDishState";
+import { useDispatch } from "react-redux";
+import  { useEffect } from "react";
 
 
 const Categories = () => {
-
-getRefreshment();
-const refreshment = useRefreshment();
-
-getStarter();
-const starter = useStarter();
-
-getSoup();
-const soup = useSoup();
-
-getAccompaniment();
-const accompaniment= useAccompaniment();
-
-getMultiCuisine();
-const multiCuisine=useMultiCuisine();
-
-getMainCourse();
-const mainCourse= useMainCourse();
-
-getSalad();
-const salad = useSalad();
-
-getDessert();
-const dessert = useDessert();
+  const dispatch=useDispatch();
+  const refreshment = useRefreshment();
+  const starter = useStarter();
+  const soup = useSoup();
+  const accompaniment= useAccompaniment();
+  const multiCuisine=useMultiCuisine();
+  const mainCourse= useMainCourse();
+  const salad = useSalad();
+  const dessert = useDessert();
+  if(refreshment.length===0 || starter.length===0 ||
+     soup.length===0 ||accompaniment.length ===0 ||
+      multiCuisine.length===0 || mainCourse.length===0 ||
+       salad.length===0 || dessert.length===0)
+  {
+    getRefreshment(dispatch);
+    getStarter(dispatch);
+    getSoup(dispatch);
+    getAccompaniment(dispatch);
+    getMultiCuisine(dispatch);
+    getMainCourse(dispatch);
+    getSalad(dispatch);
+    getDessert(dispatch);
+  }
 
   const categories = [
     {

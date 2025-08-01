@@ -13,7 +13,6 @@ function LoginPage  ()  {
   });
 
   const navigate=useNavigate();
-
   const handleChange = (event, property) => {
     setData({ ...data, [property]: event.target.value });
   };
